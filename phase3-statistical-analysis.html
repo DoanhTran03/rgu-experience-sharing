@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Phase 3 - Statistical Analysis | Spring Sequence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+body { font-family: 'Inter', sans-serif; background-color: #F3F4F6; }
+h1, h2, h3 { font-family: 'Inter', sans-serif; }
+</style>
+</head>
+<body class="text-[#7A2182] overflow-x-hidden">
+
+<!-- Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0px_20px_40px_rgba(92,24,98,0.06)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<a href="index.html" class="flex items-center gap-3">
+<img src="images/logo.png" alt="Spring Sequence Logo" class="h-10 w-auto"/>
+<div class="text-2xl font-semibold text-[#7A2182]">Spring Sequence</div>
+</a>
+<div class="hidden md:flex items-center gap-4">
+<a href="phase1-literature-review.html" class="px-4 py-2 text-[#7A2182] hover:bg-[#F3F4F6] rounded-lg font-medium">Phase 1</a>
+<a href="phase2-research-proposal.html" class="px-4 py-2 text-[#7A2182] hover:bg-[#F3F4F6] rounded-lg font-medium">Phase 2</a>
+<a href="phase3-statistical-analysis.html" class="px-4 py-2 bg-[#7A2182] text-white rounded-lg font-medium">Phase 3</a>
+<a href="phase4-wrapping-up.html" class="px-4 py-2 text-[#7A2182] hover:bg-[#F3F4F6] rounded-lg font-medium">Phase 4</a>
+</div>
+</div>
+</nav>
+
+<main class="mt-24 pb-24">
+<!-- Header -->
+<header class="py-16 bg-[#7A2182] text-white">
+<div class="max-w-4xl mx-auto px-8">
+<p class="text-sm font-semibold uppercase tracking-widest mb-2 opacity-80">Phase 3</p>
+<h1 class="text-4xl md:text-5xl font-bold mb-4">Statistical Analysis</h1>
+<p class="text-xl opacity-90">How to Meet the Rubric</p>
+</div>
+</header>
+
+<!-- Goal -->
+<div class="max-w-4xl mx-auto px-8 py-8">
+<div class="bg-white p-6 rounded-xl border-l-4 border-[#7A2182]">
+<p class="text-base text-[#6B7280] leading-relaxed text-justify">
+<span class="font-semibold">Goal:</span> Produce an R Markdown file that provides empirical evidence supporting your research proposal, while meeting every sub-criterion in the assessment rubric.
+</p>
+</div>
+</div>
+
+<!-- Content -->
+<div class="max-w-4xl mx-auto px-8 py-8">
+
+<!-- Step 1 -->
+<section class="mb-16">
+<h2 class="text-2xl font-bold text-[#7A2182] mb-6">Step 1 - Choose and Describe Your Dataset</h2>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+Before writing a single line of R, be clear about what your dataset actually represents.
+</p>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+Ask yourself:
+</p>
+<ul class="list-disc list-inside text-base text-[#6B7280] leading-relaxed mb-4 space-y-2 pl-4">
+<li>What does one row mean? (One transaction? One day? One patient?)</li>
+<li>What is your outcome variable, and why does it matter for your research question?</li>
+<li>What are your key predictor variables?</li>
+</ul>
+<p class="text-base text-[#6B7280] leading-relaxed text-justify">
+Write this up as a proper paragraph, not a bullet list. They want to see that you understand the data contextually, not just technically. Include a summary() and str() (structured summary) call, but follow them with real written commentary - what do the numbers actually tell you about the domain?
+</p>
+</section>
+
+<!-- Step 2 -->
+<section class="mb-16">
+<h2 class="text-2xl font-bold text-[#7A2182] mb-6">Step 2 - Clean and Prepare the Data</h2>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+Data cleaning should be documented and justified, not just done silently.
+</p>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+Cover:
+</p>
+<ul class="list-disc list-inside text-base text-[#6B7280] leading-relaxed mb-4 space-y-2 pl-4">
+<li>Any datatype corrections (dates, factors, numerics)</li>
+<li>Removing redundant columns - and explaining why they are redundant</li>
+<li>Handling missing values - explain whether you dropped rows, imputed, or left them, and why</li>
+<li>Any derived variables you create (target variable, transformed features)</li>
+</ul>
+<p class="text-base text-[#6B7280] leading-relaxed text-justify">
+If you drop rows or observations, explain the reasoning. "We removed X rows because..." is always better than silently shrinking your dataset.
+</p>
+</section>
+
+<!-- Step 3 -->
+<section class="mb-16">
+<h2 class="text-2xl font-bold text-[#7A2182] mb-6">Step 3 - Distribution Analysis (2 numerical variables minimum)</h2>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+Pick two numerical variables that are meaningful to your research question, not just whichever ones are easiest.
+</p>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+For each variable produce:
+</p>
+<ul class="list-disc list-inside text-base text-[#6B7280] leading-relaxed mb-4 space-y-2 pl-4">
+<li>A histogram or density plot</li>
+<li>Skewness and kurtosis values</li>
+<li>A Shapiro-Wilk normality test (on a sample if n > 5000)</li>
+<li>Written commentary on shape, outliers, and whether normality seems reasonable</li>
+</ul>
+<p class="text-base text-[#6B7280] leading-relaxed text-justify">
+The commentary matters as much as the plot. Don't just say "the distribution is right-skewed." Explain what that means in the context of your dataset and why it matters for the analysis that follows - particularly for your choice of statistical test later.
+</p>
+</section>
+
+<!-- Step 4 -->
+<section class="mb-16">
+<h2 class="text-2xl font-bold text-[#7A2182] mb-6">Step 4 - Relationship Between Two Variables</h2>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+Choose two variables where the relationship is genuinely interesting relative to your research question - not just two that happen to correlate.
+</p>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+Produce:
+</p>
+<ul class="list-disc list-inside text-base text-[#6B7280] leading-relaxed mb-4 space-y-2 pl-4">
+<li>A scatter plot (with a smoothing line if the relationship is non-linear)</li>
+<li>A correlation coefficient (Pearson if both are normal; Spearman if not)</li>
+<li>A significance test for the correlation</li>
+</ul>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+Then write about:
+</p>
+<ul class="list-disc list-inside text-base text-[#6B7280] leading-relaxed mb-4 space-y-2 pl-4">
+<li>Direction (positive or negative)</li>
+<li>Strength (weak, moderate, strong)</li>
+<li>What it means practically for your topic</li>
+</ul>
+<p class="text-base text-[#6B7280] leading-relaxed text-justify">
+A common mistake here is describing the plot without interpreting the domain implication. The rubric rewards insight, not just correct execution.
+</p>
+</section>
+
+<!-- Step 5 -->
+<section class="mb-16">
+<h2 class="text-2xl font-bold text-[#7A2182] mb-6">Step 5 - Group Comparison / Hypothesis Test</h2>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+Split your data into two meaningful groups (e.g. two categories of your outcome variable, or a binary predictor) and compare a continuous variable between them.
+</p>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+The correct sequence is:
+</p>
+<ol class="list-decimal list-inside text-base text-[#6B7280] leading-relaxed mb-4 space-y-2 pl-4">
+<li>State your null and alternative hypotheses explicitly</li>
+<li>Test normality within each group using Shapiro-Wilk</li>
+<li>If both groups are normal &rarr; use a Welch t-test; if either fails normality &rarr; use Wilcoxon rank-sum</li>
+<li>Report the test statistic, degrees of freedom (if applicable), and p-value</li>
+<li>Interpret in plain English - what does the result actually mean for your research question?</li>
+</ol>
+<p class="text-base text-[#6B7280] leading-relaxed text-justify">
+Running both tests and reporting both is fine, as long as you clearly state which one you rely on and why. Group summary statistics (mean, median, SD, n) should be shown in a clean table alongside the test results.
+</p>
+</section>
+
+<!-- Step 6 -->
+<section class="mb-16">
+<h2 class="text-2xl font-bold text-[#7A2182] mb-6">Step 6 - Association Between Categorical Variables</h2>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+Construct a meaningful categorical variable if one doesn't naturally exist in your dataset (e.g. splitting a continuous variable at the median to create a High/Low regime). Explain this decision clearly.
+</p>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+Then:
+</p>
+<ul class="list-disc list-inside text-base text-[#6B7280] leading-relaxed mb-4 space-y-2 pl-4">
+<li>Build a contingency table</li>
+<li>Calculate row percentages for interpretation</li>
+<li>Run a chi-square test</li>
+<li>Calculate Cramer's V as an effect size measure</li>
+<li>Produce a grouped bar chart</li>
+</ul>
+<p class="text-base text-[#6B7280] leading-relaxed text-justify">
+Your interpretation should address both statistical significance (p-value) and practical significance (effect size). A borderline p-value with a tiny Cramer's V is an important finding in itself - it tells you the association, even if real, may not be practically useful.
+</p>
+</section>
+
+<!-- Step 7 -->
+<section class="mb-16">
+<h2 class="text-2xl font-bold text-[#7A2182] mb-6">Step 7 - Reflection and Research Link</h2>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+This is the section most groups may underwrite, and it is where you can distinguish yourself.
+</p>
+<p class="text-base text-[#6B7280] leading-relaxed mb-4 text-justify">
+Cover:
+</p>
+<ul class="list-disc list-inside text-base text-[#6B7280] leading-relaxed mb-4 space-y-2 pl-4">
+<li>How the exploratory findings either confirmed or challenged your assumptions from the proposal</li>
+<li>Any limitations the analysis revealed (small sample, single time period, derived rather than real-world features)</li>
+<li>What additional data or experiments would increase confidence in your conclusions</li>
+<li>How each statistical finding connects back to a specific research question</li>
+</ul>
+<p class="text-base text-[#6B7280] leading-relaxed text-justify">
+The marker is looking for evidence that you can reason across the full pipeline - from the raw data, through the statistics, back to the research problem. Don't just summarise the numbers; explain what they mean for the project as a whole.
+</p>
+</section>
+
+<!-- Formatting Tips -->
+<section class="mb-16 bg-[#EDE9FE] border-l-4 border-[#7A2182] p-8 rounded-r-xl">
+<h2 class="text-2xl font-bold text-[#7A2182] mb-6">Formatting and Presentation Tips</h2>
+<ul class="list-disc list-inside text-base text-[#6B7280] leading-relaxed space-y-3 pl-4">
+<li>Every important code chunk should be followed by a written interpretation - code alone is not enough</li>
+<li>Tables could be rendered with knitr::kable() for clean presentation, not raw console output</li>
+<li>Every plot needs a title, labelled axes, and a written caption or paragraph below it</li>
+<li>Use consistent section headers that map directly to the six rubric requirements</li>
+<li>Comment your code clearly - the marker reads the Markdown file as well as the knitted output</li>
+<li>Run the full document end-to-end before submission to confirm it knits cleanly with no errors</li>
+</ul>
+</section>
+
+<!-- Common Mistakes -->
+<section class="bg-[#FEF2F2] border-l-4 border-[#DC2626] p-8 rounded-r-xl">
+<h2 class="text-2xl font-bold text-[#DC2626] mb-6">Phase 3 Common Mistakes</h2>
+
+<h3 class="text-lg font-semibold text-[#DC2626] mb-2">Code without commentary</h3>
+<p class="text-base text-[#6B7280] leading-relaxed mb-6 text-justify">
+Submitting an R Markdown file full of correct code but no written interpretation is one of the most common ways to lose marks. The rubric explicitly rewards insightful commentary. Every output - every plot, every test result, every table - needs a paragraph explaining what it means for your research question.
+</p>
+
+<h3 class="text-lg font-semibold text-[#DC2626] mb-2">Choosing the wrong statistical test</h3>
+<p class="text-base text-[#6B7280] leading-relaxed mb-6 text-justify">
+The most common error is applying a t-test without checking normality first. Always run Shapiro-Wilk on each group before deciding between parametric and non-parametric tests. If either group fails normality, use Wilcoxon. Document this decision in your write-up.
+</p>
+
+<h3 class="text-lg font-semibold text-[#DC2626] mb-2">Reporting p-values without effect sizes</h3>
+<p class="text-base text-[#6B7280] leading-relaxed mb-6 text-justify">
+A significant p-value tells you an effect exists. It doesn't tell you whether it matters. Always pair hypothesis test results with an effect size measure - Cohen's d, Cramer's V, or Spearman's rho depending on the test. A tiny effect that is statistically significant due to large sample size is an important finding, not a confirmation of your hypothesis.
+</p>
+
+<h3 class="text-lg font-semibold text-[#DC2626] mb-2">Reflection section that just summarises results</h3>
+<p class="text-base text-[#6B7280] leading-relaxed mb-6 text-justify">
+The reflection should connect statistical findings back to the research proposal - not restate what the tests showed. Ask: did this confirm or challenge what you assumed in Phase 2? What new uncertainty did it introduce?
+</p>
+
+<h3 class="text-lg font-semibold text-[#DC2626] mb-2">Selecting variables for analysis that aren't meaningful to the research question</h3>
+<p class="text-base text-[#6B7280] leading-relaxed text-justify">
+Some groups pick variables simply because they are easy to plot or test. The variables you analyse should be chosen because they are directly relevant to your RQs. The marker is assessing whether you understand your data in context, not just whether you can run a test.
+</p>
+</section>
+
+</div>
+
+<!-- Navigation -->
+<div class="max-w-4xl mx-auto px-8">
+<div class="flex justify-between items-center pt-8 border-t border-gray-200">
+<a href="phase2-research-proposal.html" class="px-6 py-3 bg-gray-200 text-[#7A2182] rounded-lg font-medium hover:bg-gray-300 transition-colors">&larr; Phase 2</a>
+<a href="phase4-wrapping-up.html" class="px-6 py-3 bg-[#7A2182] text-white rounded-lg font-medium hover:bg-[#5C1862] transition-colors">Next: Phase 4 &rarr;</a>
+</div>
+</div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full py-12 bg-[#F3F4F6]">
+<div class="text-center px-12 max-w-7xl mx-auto">
+<p class="text-lg text-[#7A2182]">Best wishes from Spring Sequence team on your project!</p>
+</div>
+</footer>
+
+</body>
+</html>
